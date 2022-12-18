@@ -1,13 +1,31 @@
-print("Welcome to Guessing Game 1.0a [C] - Flames Co. LTD")
-print("Guess a number between 1 and 10")
-guess = int(input("Enter your guess: "))
-## make a algrothim to guess the number
-## use a random number generator
+
 import random
-randomnum = random.randint(1,10)
-if guess == randomnum:
-    print("You guessed correctly")
-else:
-    print("You guessed incorrectly")
-    print("The correct answer was", randomnum)
-    print("Better luck next time")
+
+#generate a random number
+number = random.randint(1,10)
+
+#ask user to guess the number
+print("Guess the number between 1 and 10")
+
+#keep track of number of guesses
+guess_count = 0
+
+#infinite loop
+while True:
+    #get the guess from user
+    guess = int(input())
+
+    #increment the guess count
+    guess_count = guess_count + 1
+
+    #check if the guess is correct
+    if guess == number:
+        print("Correct!")
+        print("You guessed it in " + str(guess_count) + " guesses.")
+        break
+    #check if the guess is too high
+    elif guess > number:
+        print("Incorrect! Your guess is too high.")
+    #otherwise, the guess is too low
+    else:
+        print("Incorrect! Your guess is too low.")
